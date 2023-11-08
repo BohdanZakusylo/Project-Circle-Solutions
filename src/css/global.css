@@ -1,0 +1,320 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --orange: #f0790e;
+    --blue-grey: #799dab;
+    --light-blue: #c7eaf8;
+    --accent-blue: #dcf1f9;
+}
+
+/* fonts are loaded with a font-weight
+   property, then this is applied to 
+   differiantiate the text styles */
+
+@font-face {
+    font-family: "Calibre";
+    font-weight: 300;
+    src: url("../fonts/Calibre-Light.otf");
+}
+
+@font-face {
+    font-family: "Calibre";
+    font-weight: 400;
+    src: url("../fonts/Calibre-Regular.otf");
+}
+
+@font-face {
+    font-family: "Calibre";
+    font-weight: 500;
+    src: url("../fonts/Calibre-Medium.otf");
+}
+
+@font-face {
+    font-family: "Calibre";
+    font-weight: 600;
+    src: url("../fonts/Calibre-Semibold.otf");
+}
+
+@font-face {
+    font-family: "Calibre";
+    font-weight: 700;
+    src: url("../fonts/Calibre-Bold.otf");
+}
+
+/* predefined text styles */
+h1 {
+    font-family: "Calibre";
+    font-weight: 700;
+}
+
+h2 {
+    font-family: "Calibre";
+    font-weight: 600;
+}
+
+h3 {
+    font-family: "Calibre";
+    font-weight: 500;
+}
+
+h4 {
+    font-family: "Calibre";
+    font-weight: 500;
+}
+
+p,
+li,
+a {
+    font-family: "Calibre";
+    font-weight: 300;
+}
+
+input {
+    font-family: "Calibre";
+    font-weight: 500;
+}
+
+b,
+strong {
+    font-family: "Calibre";
+    font-weight: 700;
+}
+
+/* other styles */
+
+#mainGrid {
+    display: grid;
+    grid-template-columns: 10% repeat(5, 1fr) 10%;
+}
+
+
+header {
+    display: grid;
+    grid-template-columns: repeat(11, 1fr);
+
+    grid-column: 1/8;
+    background-color: rgba(199, 234, 248, .95);
+    backdrop-filter: blur(3px);
+    height: 100px;
+    position: sticky;
+    top: 0;
+
+    font-family: "Calibre Semi-Bold";
+}
+
+header ul li {
+    list-style: none;
+    display: inline;
+    margin-left: 10px;
+
+    font-family: "Calibre";
+    font-weight: 600;
+}
+
+header a {
+    color: var(--blue-grey);
+    text-decoration: none;
+
+    font-size: 18px;
+    font-family: "Calibre";
+    font-weight: 600;
+}
+
+header a:hover {
+    color: var(--orange);
+}
+
+header ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    grid-column: 7/11;
+}
+
+header > a {
+    grid-column: 2/3;
+    align-self: center;
+}
+
+
+footer {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+
+    grid-column: 1/8;
+    height: 150px;
+
+    background-color: var(--light-blue);
+}
+
+footer section {
+    width: 37px;
+    height: 37px;
+    border-radius: 30px;
+    margin-top: 64px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--blue-grey);
+    filter: drop-shadow(0 4px 4px rgba(0, 0, 0, .25));
+}
+
+footer div section a {
+    align-self: center;
+    height: 29px;
+}
+
+footer img {
+    width: 29px;
+    height: 29px;
+    align-self: center;
+}
+
+footer div {
+    grid-column: 2/4;
+
+    display: flex;
+    gap: 50px;
+}
+
+#contacts {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    gap: 10px;
+
+    grid-column: 6/7;
+    margin-top: 20px;
+
+    font-family: "Calibre";
+    font-weight: 300;
+}
+
+#contacts a {
+    flex-direction: column;
+    align-self: center;
+}
+
+#contacts p {
+    align-self: center;
+    color: var(--blue-grey);
+}
+
+#location {
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    gap: 10px;
+
+    grid-column: 6/7;
+    margin-top: -20px;
+    margin-bottom: 60px;
+}
+
+#location p {
+    align-self: center;
+    color: var(--blue-grey);
+}
+
+@media screen and (max-width: 576px) {
+    header {
+        grid-template-rows: 40% 60%;
+        height: 220px;
+        position: static;
+    }
+
+    header img {
+        width: 200px;
+        height: 65px;
+
+        display: flex;
+    }
+
+    header ul {
+        grid-column: 2/11;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    header ul li {
+        margin: 0;
+    }
+
+    header li a {
+        font-size: 1.15em;
+    }
+
+    header > a {
+        grid-column: 4/8;
+        margin-top: 20px;
+    }
+
+
+    footer {
+        grid-column: 1/9;
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    footer div {
+        grid-row: 1/6;
+        grid-column: 1/2;
+        margin-left: 36px;
+
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    #contacts {
+        grid-row: 2/3;
+        grid-column: 2/3;
+        margin: 0;
+        margin-right: 25px;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    #location {
+        grid-row: 4/5;
+        grid-column: 2/3;
+        margin: 0;
+        margin-right: 25px;
+
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    footer section {
+        margin-top: 10px;
+    }
+
+    footer img {
+        width: 24px;
+        height: 24px;
+    }
+
+    footer section {
+        width: 32px;
+        height: 32px;
+    }
+
+    footer div section a {
+        height: 24px;
+    }
+}
